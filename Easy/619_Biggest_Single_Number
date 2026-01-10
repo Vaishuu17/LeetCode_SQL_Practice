@@ -1,0 +1,24 @@
+-- Problem: Biggest Single Number
+-- LeetCode ID: 619
+-- Difficulty: Easy
+-- Topic: GROUP BY, HAVING, Aggregate Function
+-- Link: https://leetcode.com/problems/biggest-single-number/
+
+SELECT MAX(num) AS num
+FROM (
+    SELECT num
+    FROM MyNumbers
+    GROUP BY num
+    HAVING COUNT(num) = 1
+) t;
+
+
+WITH CTE:
+WITH biggest_single_no AS (
+    SELECT num 
+    FROM MyNumbers 
+    GROUP BY num
+    HAVING COUNT(num) = 1
+)
+SELECT MAX(num) AS num
+FROM biggest_single_no;
