@@ -1,0 +1,15 @@
+-- Problem: Last Person to Fit in the Bus
+-- LeetCode ID: 1204
+-- Difficulty: Medium
+-- Topic: Window Function, Running Sum
+-- Link: https://leetcode.com/problems/last-person-to-fit-in-the-bus/
+
+SELECT person_name
+FROM (
+    SELECT person_name,
+           SUM(weight) OVER (ORDER BY turn) AS total_weight
+    FROM Queue
+) t
+WHERE total_weight <= 1000
+ORDER BY total_weight DESC
+LIMIT 1;
