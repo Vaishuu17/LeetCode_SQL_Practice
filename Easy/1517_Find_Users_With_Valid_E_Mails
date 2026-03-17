@@ -1,0 +1,9 @@
+-- Problem: Find Users With Valid E-Mails
+-- LeetCode ID: 1517
+-- Difficulty: Easy
+-- Topic: String Matching, REGEXP
+-- Link: https://leetcode.com/problems/find-users-with-valid-e-mails/
+
+SELECT user_id, name, mail
+FROM Users
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\\.com$';
